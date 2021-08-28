@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Form</title>
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+    <link rel="stylesheet" href="./boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="wrapper" id="wrapper">
+
+        <!-- === Form Container for Login -->
+        <div class="form-container form-login">
+            <h2>Login</h2>
+            <div class="social">
+                <a href="#"><i class="bx bxl-google"></i></a>
+                <a href="#"><i class="bx bxl-facebook"></i></a>
+                <a href="#"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <span>or use your account</span>
+            <form action="#">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+        </div>
+
+        <!-- === Form Container for Register -->
+        <div class="form-container form-register">
+            <h2>Create Account</h2>
+            <div class="social">
+                <a href="#"><i class="bx bxl-google"></i></a>
+                <a href="#"><i class="bx bxl-facebook"></i></a>
+                <a href="#"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <form action="#">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- === Overlay Container -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-register">
+                    <h2>Hello, Friend!</h2>
+                    <p>Enter your personal details and start journey with us.</p>
+                    <a class="btn" id="register">Register</a>
+                </div>
+                <div class="overlay-panel overlay-login">
+                    <h2>Welcome Back!</h2>
+                    <p>To keep you connected with us please login with your personal info.</p>
+                    <a class="btn" id="login">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+
+        const login = document.querySelector("#login")
+        const register = document.querySelector("#register")
+        const wrapper = document.querySelector("#wrapper")
+
+        login.addEventListener('click', (e) => {
+            e.preventDefault()
+            wrapper.classList.remove('register-panel-active')
+            wrapper.classList.add('login-panel-active')
+        })
+
+        register.addEventListener('click', (e) => {
+            e.preventDefault()
+            wrapper.classList.remove('login-panel-active')
+            wrapper.classList.add('register-panel-active')
+        })
+
+    </script>
+</body>
+</html>

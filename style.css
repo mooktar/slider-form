@@ -1,0 +1,226 @@
+/* 
+Author: Mooktar
+Project: Slider Form
+Description: Simple slider form for login and sign in
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+:root {
+    --first-color: #ff4b2b;
+    --hover-color: #db2707;
+    --second-color: #ff416c;
+    --link-color: #333;
+    --light-color: #eee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: "Source Sans Pro", sans-serif;
+    background: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+a, a:hover, a:focus {
+    font-size: 0.9em !important;
+    text-decoration: none;
+    color: var(--link-color);
+    margin: 10px 0;
+}
+
+p {
+    font-size: 0.9em;
+    font-weight: 100;
+    line-height: 1.1;
+    letter-spacing: .5px;
+    margin: 20px 0 30px;
+}
+
+span {
+    font-size: 0.8em;
+}
+
+/* === Button === */
+.btn {
+    font-size: 0.8em;
+    padding: 0.5rem 1.5rem;
+    margin-top: 0.7rem;
+    background: var(--first-color);
+    color: #fff;
+    border: 1px solid var(--first-color);
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(0.8);
+}
+
+.btn:hover {
+    color: #fff;
+    background: var(--hover-color);
+}
+
+.overlay-panel .btn {
+    border-color: #fff !important;
+    color: #fff;
+    background: transparent;
+}
+
+/* === Social === */
+.social {
+    margin: 1.4em 0;
+}
+
+.social a {
+    margin: 0 0.3em;
+    border-radius: 50%;
+    border: 1px solid var(--link-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+}
+
+
+/* === Wrapper === */
+.wrapper {
+    width: 700px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 1px 10px #0001;
+}
+
+.form-container {
+    height: 100%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    transition:  all .5s ease-in-out;
+}
+
+.form-container span, a {
+    display: block;
+    width: 100%;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 0.5em 0.7em;
+    margin: 0.5em 0;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background: var(--light-color);
+}
+
+.form-login,
+.form-register {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+}
+
+.form-login { 
+    z-index: 2;
+}
+.form-register { 
+    opacity: 0;
+    z-index: 1;
+}
+
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: var(--first-color);
+    background: linear-gradient(to right, var(--first-color), var(--second-color)) no-repeat 0 0 / cover;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform .5s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.2em;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateX(0);
+    transition: transform .5s ease-in-out;
+}
+
+.overlay-login {
+    transform: translateX(-20%);
+}
+
+.overlay-register {
+    right: 0;
+    transform: translateX(0%);
+}
+
+
+/* === Animation === */
+.wrapper.register-panel-active .form-login {
+    transform: translateX(100%);
+}
+
+.wrapper.register-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.wrapper.register-panel-active .form-register {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+.wrapper.register-panel-active .overlay {
+    transform: translateX(50%);
+}
+.wrapper.register-panel-active .overlay-login {
+    transform: translateX(0%);
+}
+.wrapper.register-panel-active .overlay-register {
+    transform: translateX(20%);
+}
